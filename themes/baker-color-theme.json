@@ -1,0 +1,71 @@
+{
+	"name": "Baker Color",
+	"tokenColors": [
+		{
+			"name": "Bold",
+			"scope": [
+				"tag.bold.bakerlang"
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#E0E0E0"
+			}
+		},
+		{
+			"name": "Space",
+			"scope": [
+				"tag.space.bakerlang"
+			],
+			"settings": {
+				"foreground": "#757575"
+			}
+		},
+		{
+			"name": "Light",
+			"scope": [
+				"tag.light.bakerlang"
+			],
+			"settings": {
+				"fontStyle": "italic",
+				"foreground": "#90A4AE"
+			}
+		},
+		{
+			"name": "Red",
+			"scope": [
+				"tag.red.bakerlang"
+			],
+			"settings": {
+				"foreground": "#E53935"
+			}
+		},
+		{
+			"name": "White",
+			"scope": [
+				"tag.white.bakerlang"
+			],
+			"settings": {
+				"foreground": "#EEEEEE"
+			}
+		},
+		{
+			"name": "Title",
+			"scope": [
+				"mark.title.bakerlang"
+			],
+			"settings": {
+				"fontStyle": "bold",
+				"foreground": "#EEEEEE"
+			}
+		},
+		{
+			"name": "Image",
+			"scope": [
+				"mark.image.bakerlang"
+			],
+			"settings": {
+				"foreground": "#3F7ACB"
+			}
+		}
+	]
+}

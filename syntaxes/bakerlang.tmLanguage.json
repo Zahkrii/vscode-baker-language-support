@@ -1,0 +1,51 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Baker Lang",
+	"patterns": [
+		{
+			"include": "#tags"
+		},
+		{
+			"include": "#marks"
+		}
+	],
+	"repository": {
+		"tags": {
+			"patterns": [
+				{
+					"name": "tag.bold.bakerlang",
+					"match": "<b>((?!</?b>).)*</b>"
+				},
+				{
+					"name": "tag.space.bakerlang",
+					"match": "<br>"
+				},
+				{
+					"name": "tag.light.bakerlang",
+					"match": "<l>((?!</?l>).)*</l>"
+				},
+				{
+					"name": "tag.red.bakerlang",
+					"match": "<red>((?!</?red>).)*</red>"
+				},
+				{
+					"name": "tag.white.bakerlang",
+					"match": "<white>((?!</?white>).)*</white>"
+				}
+			]
+		},
+		"marks": {
+			"patterns": [
+				{
+					"name": "mark.title.bakerlang",
+					"match": "###.*"
+				},
+				{
+					"name": "mark.image.bakerlang",
+					"match": "{{{.*"
+				}
+			]
+		}
+	},
+	"scopeName": "text.baker"
+}
