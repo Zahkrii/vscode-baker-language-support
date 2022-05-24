@@ -21,7 +21,8 @@ Baker Language support for Visual Studio Code.
 
 ## Known Issues
 
-There are currently no known issues.
+- Syntax highlighting is not available in other color themes and will be fixed in the next release
+- Incorrectly formatting the code in some cases
 
 ## Release Notes
 
@@ -36,5 +37,3 @@ There are currently no known issues.
 
 - Baker Language Formatter
 - Commonly used command, keybinding and context menu
-
------------------------------------------------------------------------------------------------------------
