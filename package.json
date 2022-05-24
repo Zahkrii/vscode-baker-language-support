@@ -4,6 +4,11 @@
 	"description": "Baker Language support for Visual Studio Code.",
 	"version": "1.0.1",
 	"publisher": "strunmah",
+	"license": "GPL",
+	"author": {
+		"name": "Zahkrii",
+		"url": "https://github.com/Zahkrii"
+	},
 	"engines": {
 		"vscode": "^1.67.0"
 	},
@@ -13,7 +18,7 @@
 		"Snippets",
 		"Formatters"
 	],
-	"icon": "images/icon.png",
+	"icon": "images/logo.png",
 	"activationEvents": [
 		"onLanguage:bakerlang"
 	],
