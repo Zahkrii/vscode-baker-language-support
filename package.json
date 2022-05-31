@@ -2,7 +2,7 @@
 	"name": "baker-language-support",
 	"displayName": "Baker Language Support",
 	"description": "Baker Language support for Visual Studio Code.",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"publisher": "strunmah",
 	"license": "GPL",
 	"author": {

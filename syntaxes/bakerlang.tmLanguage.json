@@ -13,23 +13,23 @@
 		"tags": {
 			"patterns": [
 				{
-					"name": "tag.bold.bakerlang",
+					"name": "keyword.operator.less",
 					"match": "<b>((?!</?b>).)*</b>"
 				},
 				{
-					"name": "tag.space.bakerlang",
+					"name": "comment",
 					"match": "<br>"
 				},
 				{
-					"name": "tag.light.bakerlang",
+					"name": "token.package",
 					"match": "<l>((?!</?l>).)*</l>"
 				},
 				{
-					"name": "tag.red.bakerlang",
+					"name": "markup.heading",
 					"match": "<red>((?!</?red>).)*</red>"
 				},
 				{
-					"name": "tag.white.bakerlang",
+					"name": "invalid.illegal",
 					"match": "<white>((?!</?white>).)*</white>"
 				}
 			]
@@ -37,11 +37,11 @@
 		"marks": {
 			"patterns": [
 				{
-					"name": "mark.title.bakerlang",
+					"name": "invalid.illegal",
 					"match": "###.*"
 				},
 				{
-					"name": "mark.image.bakerlang",
+					"name": "keyword.control",
 					"match": "{{{.*"
 				}
 			]

@@ -21,20 +21,8 @@ Baker Language support for Visual Studio Code.
 
 ## Known Issues
 
-There are currently no known issues.
+- Incorrectly formatting the code in some cases
 
-## Release Notes
+## Changelog
 
-### 1.0.0
-
-- Initial release
-- Baker Language syntax highlight
-- Custom color theme for Baker Language
-- Baker Language code snippets
-
-### 1.0.1
-
-- Baker Language Formatter
-- Commonly used command, keybinding and context menu
-
------------------------------------------------------------------------------------------------------------
+See [Changelog](https://github.com/Zahkrii/vscode-baker-language-support/blob/main/CHANGELOG.md).

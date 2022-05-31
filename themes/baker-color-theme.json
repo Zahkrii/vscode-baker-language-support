@@ -4,7 +4,7 @@
 		{
 			"name": "Bold",
 			"scope": [
-				"tag.bold.bakerlang"
+				"keyword.operator.less"
 			],
 			"settings": {
 				"fontStyle": "bold",
@@ -14,7 +14,7 @@
 		{
 			"name": "Space",
 			"scope": [
-				"tag.space.bakerlang"
+				"comment"
 			],
 			"settings": {
 				"foreground": "#757575"
@@ -23,7 +23,7 @@
 		{
 			"name": "Light",
 			"scope": [
-				"tag.light.bakerlang"
+				"token.package"
 			],
 			"settings": {
 				"fontStyle": "italic",
@@ -33,7 +33,7 @@
 		{
 			"name": "Red",
 			"scope": [
-				"tag.red.bakerlang"
+				"markup.heading"
 			],
 			"settings": {
 				"foreground": "#E53935"
@@ -42,7 +42,7 @@
 		{
 			"name": "White",
 			"scope": [
-				"tag.white.bakerlang"
+				"invalid.illegal"
 			],
 			"settings": {
 				"foreground": "#EEEEEE"
@@ -51,7 +51,7 @@
 		{
 			"name": "Title",
 			"scope": [
-				"mark.title.bakerlang"
+				"invalid.illegal"
 			],
 			"settings": {
 				"fontStyle": "bold",
@@ -61,7 +61,7 @@
 		{
 			"name": "Image",
 			"scope": [
-				"mark.image.bakerlang"
+				"keyword.control"
 			],
 			"settings": {
 				"foreground": "#3F7ACB"
