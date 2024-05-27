@@ -11,13 +11,14 @@ Baker Language support for Visual Studio Code.
     - `rr` \<red>\</red>
     - `br` \<br>
     - `shield` quick defense
-    - `pic` {{{pic.png
     - `ll` \<l>\</l>
     - `ww` \<white>\</white>
 - Baker Language Formatter
 - Commonly used command, keybinding and context menu
     - `Alt + B` Set Bold
     - `Alt + R` Set Red
+- Auto completion for image resources
+  - Input `{` to trigger
 
 ## Known Issues
 
