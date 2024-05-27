@@ -17,13 +17,6 @@
         ],
         "description": "叠甲声明片段"
     },
-    "图片": {
-        "prefix": "pic",
-        "body": [
-            "{{{$1.png"
-        ],
-        "description": "图片片段"
-    },
     "粗体": {
         "prefix": "bb",
         "body": [
