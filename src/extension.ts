@@ -160,7 +160,7 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 新增干员
 			let regexNewOp = new RegExp('\n新增干员：', 'g');
 			if (regexNewOp.test(wholeText)) {
@@ -236,7 +236,7 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 卡池干员
 			// 新增四星干员3，示例：★★★★：砾（占4★出率的20%）
 			let regex4sOp3 = new RegExp('(?<!<red>.*)★★★★[：:].*[(（]占4★出率的.*[）)]', 'g');
@@ -269,7 +269,7 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 前路回响/联合行动
 			// 前路回响/联合行动六星干员，示例：★★★★★★(6★出率：2%)：白铁/伊内丝/赫德雷(占5★出率的60%)
 			let regex6sOpEcho = new RegExp('(?<!<red>.*)★★★★★★[(（]6★出率[：:].*[）)][：:].*', 'g');
@@ -302,10 +302,10 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 公开招募
 			// 公开招募新增六星干员，示例：★★★★★★ 阿斯卡纶
-			let regexPub6s = new RegExp('\n((?<!<red>.*)★★★★★★ [^】）)\n]*\n){1,}', 'g');
+			let regexPub6s = new RegExp('\n((?<!<red>.*)★★★★★★ [^】）)\n]*[\r\n]){1,}', 'g');
 			if (regexPub6s.test(wholeText)) {
 				var str = wholeText.match(regexPub6s);
 				if (str !== null) {
@@ -314,14 +314,14 @@ export function activate(context: vscode.ExtensionContext) {
 						items = items.filter((it) => it !== '');
 						let newstr = '\n';
 						for (let it of items) {
-							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>\n';
+							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>';
 						}
 						modified = modified.replace(regexPub6s, newstr);
 					}
 				}
 			}
 			// 公开招募新增五星干员
-			let regexPub5s = new RegExp('\n((?<!<red>.*)★★★★★ [^】）)\n]*\n){1,}', 'g');
+			let regexPub5s = new RegExp('\n((?<!<red>.*)★★★★★ [^】）)\n]*[\r\n]){1,}', 'g');
 			if (regexPub5s.test(wholeText)) {
 				var str = wholeText.match(regexPub5s);
 				if (str !== null) {
@@ -330,14 +330,14 @@ export function activate(context: vscode.ExtensionContext) {
 						items = items.filter((it) => it !== '');
 						let newstr = '\n';
 						for (let it of items) {
-							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>\n';
+							newstr = newstr + '<red>' + it.replace('\r', '') + '</red';
 						}
 						modified = modified.replace(regexPub5s, newstr);
 					}
 				}
 			}
 			// 公开招募新增四星干员
-			let regexPub4s = new RegExp('\n((?<!<red>.*)★★★★ [^】）)\n]*\n){1,}', 'g');
+			let regexPub4s = new RegExp('\n((?<!<red>.*)★★★★ [^】）)\n]*[\r\n]){1,}', 'g');
 			if (regexPub4s.test(wholeText)) {
 				var str = wholeText.match(regexPub4s);
 				if (str !== null) {
@@ -346,13 +346,13 @@ export function activate(context: vscode.ExtensionContext) {
 						items = items.filter((it) => it !== '');
 						let newstr = '\n';
 						for (let it of items) {
-							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>\n';
+							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>';
 						}
 						modified = modified.replace(regexPub4s, newstr);
 					}
 				}
 			}
-			let regexPub1s = new RegExp('\n((?<!<red>.*)★ [^】）)\n]*\n){1,}', 'g');
+			let regexPub1s = new RegExp('\n((?<!<red>.*)★ [^】）)\n]*[\r\n]){1,}', 'g');
 			if (regexPub1s.test(wholeText)) {
 				var str = wholeText.match(regexPub1s);
 				if (str !== null) {
@@ -361,7 +361,7 @@ export function activate(context: vscode.ExtensionContext) {
 						items = items.filter((it) => it !== '');
 						let newstr = '\n';
 						for (let it of items) {
-							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>\n';
+							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>';
 						}
 						modified = modified.replace(regexPub1s, newstr);
 					}
@@ -453,7 +453,7 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 庆典道具
 			// 周年庆典干员凭证
 			let regexOpCert = new RegExp('周年庆典干员凭证(?!</red>)', 'g');
@@ -552,23 +552,24 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			// 时装2，示例：◆【玛尔特】系列 -“下一顿午茶”- 斯卡蒂
-			let regexSkin2 = new RegExp('\n((?<!<red>)◆【.*\n){1,}', 'g');
+			let regexSkin2 = new RegExp('\n(◆【.*[\r\n]){1,}', 'g');
 			if (regexSkin2.test(wholeText)) {
 				var str = wholeText.match(regexSkin2);
 				if (str !== null) {
 					for (let item of str) {
 						let items = item.split('\n');
 						items = items.filter((it) => it !== '');
+						items = items.filter((it) => it !== '<br>');
 						let newstr = '\n';
 						for (let it of items) {
-							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>\n';
+							newstr = newstr + '<red>' + it.replace('\r', '') + '</red>';
 						}
 						modified = modified.replace(regexSkin2, newstr);
 					}
 				}
 			}
 			// 时装3，示例：【玛尔特】系列 -“下一顿午茶”- 斯卡蒂
-			let regexSkin3 = new RegExp('\n((?<!<red>)【.*\n){1,}', 'g');
+			let regexSkin3 = new RegExp('\n((?<!<red>)【.*[\r\n]){1,}', 'g');
 			if (regexSkin3.test(wholeText)) {
 				var str = wholeText.match(regexSkin3);
 				if (str !== null) {
@@ -589,14 +590,14 @@ export function activate(context: vscode.ExtensionContext) {
 				var str = wholeText.match(regexSkinRe);
 				if (str !== null) {
 					for (let item of str) {
-						modified = modified.replace(regexSkin1, '活动期间，<red>' + item.substring(5).replace('】等','】') + '</red>等');
+						modified = modified.replace(regexSkin1, '活动期间，<red>' + item.substring(5).replace('】等', '】') + '</red>等');
 					}
 				}
 			}
 			//#endregion
 
 			//#region 芯片礼包
-			let regexChipBundleMd = new RegExp('\n\[医疗芯片礼包\]', 'g');
+			let regexChipBundleMd = new RegExp('\n\\[医疗芯片礼包\\]', 'g');
 			if (regexChipBundleMd.test(wholeText)) {
 				var str = wholeText.match(regexChipBundleMd);
 				if (str !== null) {
@@ -605,7 +606,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexChipBundleVd = new RegExp('\n\[先锋芯片礼包\]', 'g');
+			let regexChipBundleVd = new RegExp('\n\\[先锋芯片礼包\\]', 'g');
 			if (regexChipBundleVd.test(wholeText)) {
 				var str = wholeText.match(regexChipBundleVd);
 				if (str !== null) {
@@ -614,7 +615,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexChipBundleSpe = new RegExp('\n\[特种芯片礼包\]', 'g');
+			let regexChipBundleSpe = new RegExp('\n\\[特种芯片礼包\\]', 'g');
 			if (regexChipBundleSpe.test(wholeText)) {
 				var str = wholeText.match(regexChipBundleSpe);
 				if (str !== null) {
@@ -623,7 +624,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexChipBundleDf = new RegExp('\n\[重装芯片礼包\]', 'g');
+			let regexChipBundleDf = new RegExp('\n\\[重装芯片礼包\\]', 'g');
 			if (regexChipBundleDf.test(wholeText)) {
 				var str = wholeText.match(regexChipBundleDf);
 				if (str !== null) {
@@ -632,7 +633,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexChipBundleGd = new RegExp('\n\[近卫芯片礼包\]', 'g');
+			let regexChipBundleGd = new RegExp('\n\\[近卫芯片礼包\\]', 'g');
 			if (regexChipBundleGd.test(wholeText)) {
 				var str = wholeText.match(regexChipBundleGd);
 				if (str !== null) {
@@ -641,7 +642,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexChipBundleSpp = new RegExp('\n\[辅助芯片礼包\]', 'g');
+			let regexChipBundleSpp = new RegExp('\n\\[辅助芯片礼包\\]', 'g');
 			if (regexChipBundleSpp.test(wholeText)) {
 				var str = wholeText.match(regexChipBundleSpp);
 				if (str !== null) {
@@ -650,7 +651,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexChipBundleSni = new RegExp('\n\[狙击芯片礼包\]', 'g');
+			let regexChipBundleSni = new RegExp('\n\\[狙击芯片礼包\\]', 'g');
 			if (regexChipBundleSni.test(wholeText)) {
 				var str = wholeText.match(regexChipBundleSni);
 				if (str !== null) {
@@ -659,7 +660,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexChipBundleCt = new RegExp('\n\[术师芯片礼包\]', 'g');
+			let regexChipBundleCt = new RegExp('\n\\[术师芯片礼包\\]', 'g');
 			if (regexChipBundleCt.test(wholeText)) {
 				var str = wholeText.match(regexChipBundleCt);
 				if (str !== null) {
@@ -669,9 +670,9 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 特训礼包
-			let regexTrBundle5s1 = new RegExp('\n\[资深干员特训礼包\]', 'g');
+			let regexTrBundle5s1 = new RegExp('\n\\[资深干员特训礼包\\]', 'g');
 			if (regexTrBundle5s1.test(wholeText)) {
 				var str = wholeText.match(regexTrBundle5s1);
 				if (str !== null) {
@@ -680,7 +681,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexTrBundle5s2 = new RegExp('\n\[特训意向礼包\]', 'g');
+			let regexTrBundle5s2 = new RegExp('\n\\[特训意向礼包\\]', 'g');
 			if (regexTrBundle5s2.test(wholeText)) {
 				var str = wholeText.match(regexTrBundle5s2);
 				if (str !== null) {
@@ -689,7 +690,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexTrBundle6s1 = new RegExp('\n\[高级资深干员特训礼包\]', 'g');
+			let regexTrBundle6s1 = new RegExp('\n\\[高级资深干员特训礼包\\]', 'g');
 			if (regexTrBundle6s1.test(wholeText)) {
 				var str = wholeText.match(regexTrBundle6s1);
 				if (str !== null) {
@@ -698,7 +699,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexTrBundle6s2 = new RegExp('\n\[高级特训意向礼包\]', 'g');
+			let regexTrBundle6s2 = new RegExp('\n\\[高级特训意向礼包\\]', 'g');
 			if (regexTrBundle6s2.test(wholeText)) {
 				var str = wholeText.match(regexTrBundle6s2);
 				if (str !== null) {
@@ -708,9 +709,9 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 危机合约礼包
-			let regexCcBundle1 = new RegExp('\n\[危机支援数据包\]', 'g');
+			let regexCcBundle1 = new RegExp('\n\\[危机支援数据包\\]', 'g');
 			if (regexCcBundle1.test(wholeText)) {
 				var str = wholeText.match(regexCcBundle1);
 				if (str !== null) {
@@ -719,7 +720,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexCcBundle2 = new RegExp('\n\[危机支援数据整合箱\]', 'g');
+			let regexCcBundle2 = new RegExp('\n\\[危机支援数据整合箱\\]', 'g');
 			if (regexCcBundle2.test(wholeText)) {
 				var str = wholeText.match(regexCcBundle2);
 				if (str !== null) {
@@ -728,7 +729,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexCcBundle3 = new RegExp('\n\[危机支援资金箱\]', 'g');
+			let regexCcBundle3 = new RegExp('\n\\[危机支援资金箱\\]', 'g');
 			if (regexCcBundle3.test(wholeText)) {
 				var str = wholeText.match(regexCcBundle3);
 				if (str !== null) {
@@ -738,9 +739,9 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 新年礼包
-			let regexSprBundle1 = new RegExp('\n\[新年寻访组合包·中坚\]', 'g');
+			let regexSprBundle1 = new RegExp('\n\\[新年寻访组合包·中坚\\]', 'g');
 			if (regexSprBundle1.test(wholeText)) {
 				var str = wholeText.match(regexSprBundle1);
 				if (str !== null) {
@@ -749,7 +750,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexSprBundle2 = new RegExp('\n\[新年寻访组合包\]', 'g');
+			let regexSprBundle2 = new RegExp('\n\\[新年寻访组合包\\]', 'g');
 			if (regexSprBundle2.test(wholeText)) {
 				var str = wholeText.match(regexSprBundle2);
 				if (str !== null) {
@@ -758,7 +759,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexSprBundle3 = new RegExp('\n\[新年组合包\]', 'g');
+			let regexSprBundle3 = new RegExp('\n\\[新年组合包\\]', 'g');
 			if (regexSprBundle3.test(wholeText)) {
 				var str = wholeText.match(regexSprBundle3);
 				if (str !== null) {
@@ -767,7 +768,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexSprBundle4 = new RegExp('\n\[新春养成组合包\]', 'g');
+			let regexSprBundle4 = new RegExp('\n\\[新春养成组合包\\]', 'g');
 			if (regexSprBundle4.test(wholeText)) {
 				var str = wholeText.match(regexSprBundle4);
 				if (str !== null) {
@@ -776,7 +777,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexSprBundle5 = new RegExp('\n\[迎春组合包\]', 'g');
+			let regexSprBundle5 = new RegExp('\n\\[迎春组合包\\]', 'g');
 			if (regexSprBundle5.test(wholeText)) {
 				var str = wholeText.match(regexSprBundle5);
 				if (str !== null) {
@@ -786,9 +787,9 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			//#region 其他通用礼包
-			let regexBundle1 = new RegExp('\n\[鸭爵的零钱包\]', 'g');
+			let regexBundle1 = new RegExp('\n\\[鸭爵的零钱包\\]', 'g');
 			if (regexBundle1.test(wholeText)) {
 				var str = wholeText.match(regexBundle1);
 				if (str !== null) {
@@ -797,7 +798,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexBundle2 = new RegExp('\n\[调用凭证组合包\]', 'g');
+			let regexBundle2 = new RegExp('\n\\[调用凭证组合包\\]', 'g');
 			if (regexBundle2.test(wholeText)) {
 				var str = wholeText.match(regexBundle2);
 				if (str !== null) {
@@ -806,7 +807,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexBundle3 = new RegExp('\n\[ID信息更新礼包\]', 'g');
+			let regexBundle3 = new RegExp('\n\\[ID信息更新礼包\\]', 'g');
 			if (regexBundle3.test(wholeText)) {
 				var str = wholeText.match(regexBundle3);
 				if (str !== null) {
@@ -815,7 +816,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexBundle4 = new RegExp('\n\[罗德岛周年组合包\]', 'g');
+			let regexBundle4 = new RegExp('\n\\[罗德岛周年组合包\\]', 'g');
 			if (regexBundle4.test(wholeText)) {
 				var str = wholeText.match(regexBundle4);
 				if (str !== null) {
@@ -824,7 +825,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexBundle5 = new RegExp('\n\[\d*音律联觉纪念礼包\]', 'g');
+			let regexBundle5 = new RegExp('\n\\[\d*音律联觉纪念礼包\\]', 'g');
 			if (regexBundle5.test(wholeText)) {
 				var str = wholeText.match(regexBundle5);
 				if (str !== null) {
@@ -833,7 +834,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexBundle6 = new RegExp('\n\[ID信息更新礼包\][ (（]免费[）)]', 'g');
+			let regexBundle6 = new RegExp('\n\\[ID信息更新礼包\\][ (（]免费[）)]', 'g');
 			if (regexBundle6.test(wholeText)) {
 				var str = wholeText.match(regexBundle6);
 				if (str !== null) {
@@ -958,7 +959,7 @@ export function activate(context: vscode.ExtensionContext) {
 					}
 				}
 			}
-			let regexNotice = new RegExp('\n注意：', 'g');
+			let regexNotice = new RegExp('\n注意[：:]', 'g');
 			if (regexNotice.test(wholeText)) {
 				var str = wholeText.match(regexNotice);
 				if (str !== null) {
@@ -981,12 +982,12 @@ export function activate(context: vscode.ExtensionContext) {
 				var str = wholeText.match(regexBundleDetail);
 				if (str !== null) {
 					for (let item of str) {
-						modified = modified.replace(regexBundleDetail, '\n<b>' + item.substring(1) + '</b>');
+						modified = modified.replace(regexBundleDetail, '\n<b>' + item.replace('\n', '') + '</b>');
 					}
 				}
 			}
 			//#endregion
-			
+
 			//#region 活动部分
 			// 主线再战激励
 			let regex1San = new RegExp('1点理智(?!</red>)', 'g');
@@ -1013,6 +1014,15 @@ export function activate(context: vscode.ExtensionContext) {
 				if (str !== null) {
 					for (let item of str) {
 						modified = modified.replace(regexEventReward, '\n<b>' + item.substring(1) + '</b>');
+					}
+				}
+			}
+			let regexEventOpen = new RegExp('\n开放时间：', 'g');
+			if (regexEventOpen.test(wholeText)) {
+				var str = wholeText.match(regexEventOpen);
+				if (str !== null) {
+					for (let item of str) {
+						modified = modified.replace(regexEventOpen, '\n<b>' + item.substring(1) + '</b>');
 					}
 				}
 			}
@@ -1095,7 +1105,7 @@ export function activate(context: vscode.ExtensionContext) {
 				}
 			}
 			//#endregion
-			
+
 			return [vscode.TextEdit.replace(textRange, modified)];
 		}
 	});
